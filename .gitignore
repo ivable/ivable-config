@@ -21,3 +21,42 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+#Intershop
+target/
+target/**
+server/
+server/**
+IntershopStudio/
+IntershopStudio/**
+license.xml
+gradle_user_home/
+gradle_user_home/**
+repo/
+repo/**
+.gradle/
+.gradle/**
+.settings/
+.settings/**
+bin/
+bin/**
+node-v**/
+node-v**/**
+node_modules/
+node_modules/**
+workspace/
+workspace/**
+environment.properties.sample
+.project
+.classpath
+*.project
+**/rebel.xml
+
+# Gradle Files
+**/build/
+**/.gradle
+**/gradle-downloads/
+/projects/incentrodemoshop/assembly_incentroshop/environment.properties
+
+#studio code generate folder
+**/.apt_generated/

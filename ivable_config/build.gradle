@@ -1,0 +1,18 @@
+apply plugin: 'java-cartridge'
+apply plugin: 'static-cartridge'
+
+intershop 
+{
+    displayName = 'Ivable Config'
+    description = 'Configure Ivable Components'
+}
+
+
+dependencies 
+{
+    compile 'com.google.inject:guice'
+
+   compile group: 'com.intershop.platform', name: 'core'
+   compile group: 'com.intershop.platform', name: 'jmx'
+
+}

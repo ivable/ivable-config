@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<included>
+	<!-- BEGIN SENTRY.IO Logback Config-->
+	<appender name="Sentry" class="io.sentry.logback.SentryAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<!-- Set log level for Sentry -->
+			<level>ERROR</level> 
+		</filter>
+		<!-- Filter out YUI errors to prevent spike protection kicking in-->
+		<filter name="YUIJSErrorReporterFilter"
+			class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="YUIJSErrorFileLogger">
+				<expression>!logger.equals("com.intershop.beehive.core.internal.resource.YUIJSErrorReporter")
+				</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+	</appender>
+	
+	<!-- send logs mesg from intershop to Sentry -->
+	<logger name="com.intershop">
+		<appender-ref ref="Sentry" />
+	</logger>
+	<!-- send logs mesg from custom project to Sentry -->
+	<logger name="com.ivable">
+		<appender-ref ref="Sentry" />
+	</logger>
+	<!-- END SENTRY.IO -->
+</included>
